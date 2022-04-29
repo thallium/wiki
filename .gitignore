@@ -1,0 +1,4 @@
+node_modules/
+docs/.vuepress/wrangler.toml
+docs/.vuepress/dist/
+docs/.vuepress/workers-site/
