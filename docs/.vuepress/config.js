@@ -104,6 +104,8 @@ module.exports = {
               children: [
                 '鱼香肉丝',
                 '香辣炒虾',
+                '豉油鸡腿',
+                '蒜香鸡腿',
               ],
               collapsable: false
             }
