@@ -37,7 +37,7 @@ module.exports = {
     locales: {
       '/': {
         label: '简体中文',
-        selectText: '选择语言',
+        selectText: '🌐Languages',
         nav: [
           { text: '服务器', link: '/home-server/' },
           { text: 'LaTex', link: '/latex/' },
@@ -83,6 +83,7 @@ module.exports = {
               children: [
                 'rime',
                 'docker',
+                'git',
               ],
               collapsable: false
             }
@@ -115,6 +116,7 @@ module.exports = {
       '/en/': {
         lang: 'en-US',
         label: 'English',
+        selectText: '🌐Languages',
         sidebar: 'auto'
       }
     }
