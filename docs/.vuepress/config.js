@@ -44,7 +44,7 @@ module.exports = {
           { text: '算法竞赛', link: '/competitive-programming/' },
           { text: '电脑软件', link: '/software/' },
           { text: '食谱', link: '/cookbook/' },
-          { text: '关于我', link: 'https://tgc54.com' },
+          { text: '关于我', link: 'https://tgc54.com/zh/' },
         ],
         sidebar: {
           '/home-server/': [
@@ -61,7 +61,8 @@ module.exports = {
             {
               title: '应用程序',
               children: [
-                'file-browser'
+                'file-browser',
+                'paperless-ngx'
               ],
               collapsable: false
             },
@@ -117,7 +118,22 @@ module.exports = {
         lang: 'en-US',
         label: 'English',
         selectText: '🌐Languages',
-        sidebar: 'auto'
+        nav: [
+          { text: 'Server', link: '/home-server/' },
+          { text: 'About Me', link: 'https://tgc54.com' },
+        ],
+        sidebar: {
+          '/en/home-server/': [
+            '',
+            {
+              title: 'Applications',
+              children: [
+                'paperless-ngx'
+              ],
+              collapsable: false
+            },
+          ],
+        }
       }
     }
   },
