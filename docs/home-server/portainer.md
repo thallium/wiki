@@ -22,6 +22,12 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /va
 
 stacks -> add stack -> 复制docker-compose文件 -> deploy the stack
 
+### Quick Actions
+
+常用两个quick actions:
+- Logs: 查看log
+- Exec Console: 连进container里面干一些骚操作，比如装个包什么的。。。
+
 ## Tips
 ### 设置内网IP
 

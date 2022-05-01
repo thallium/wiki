@@ -38,6 +38,8 @@ networks:
       name: nginx-proxy-manager_default
 ```
 
+目前有个小bug就是缺`libzbar0`所以文件上传后无法被处理，解决方法就是从portainer的终端连进去然后`apt install libzbar0`或者用`docker-compose exec`（不是很确定具体用法）。
+
 ## 使用官方镜像
 
 [官方docker-compose文件](https://github.com/paperless-ngx/paperless-ngx/blob/main/docker/compose/docker-compose.portainer.yml)
