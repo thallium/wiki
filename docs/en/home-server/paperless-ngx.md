@@ -5,7 +5,7 @@
 
 It seems to be better than the official image because I was keeping getting `password authentication failed for user "paperless"` when trying the official image.
 
-(GitHub repo)[https://github.com/linuxserver/docker-paperless-ngx]
+[GitHub repo](https://github.com/linuxserver/docker-paperless-ngx)
 
 My personal docker-compose file:
 
@@ -22,7 +22,8 @@ services:
       - TZ=America/Toronto
       - REDIS_URL= #optional
       - PAPERLESS_URL= #If you are accessing through the Internet, set it to your URL
-      - PAPERLESS_OCR_LANGUAGES=eng chi-sim
+      - PAPERLESS_OCR_LANGUAGES=chi-sim # this line seems not working
+      - PAPERLESS_OCR_LANGUAGE=eng+chi_sim
 
     volumes:
       - config:/config
@@ -43,7 +44,7 @@ networks:
 
 [Official docker-compose file](https://github.com/paperless-ngx/paperless-ngx/blob/main/docker/compose/docker-compose.portainer.yml)
 
-## Create default super user
+Create default super user:
 
 It's listed in the docker-compose file but I still write here to remind myself.
 

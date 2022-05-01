@@ -4,7 +4,7 @@
 
 感觉比官方镜像做的好一些，因为用官方的镜像一直报错`password authentication failed for user "paperless"`。。。
 
-(GitHub仓库)[https://github.com/linuxserver/docker-paperless-ngx]
+[GitHub仓库](https://github.com/linuxserver/docker-paperless-ngx)
 
 我修改后的docker-compose文件：
 
@@ -21,7 +21,8 @@ services:
       - TZ=America/Toronto
       - REDIS_URL= #optional
       - PAPERLESS_URL= #如果你要通过互联网访问的话，设置这个环境变量为你的URL
-      - PAPERLESS_OCR_LANGUAGES=eng chi-sim
+      - PAPERLESS_OCR_LANGUAGES=chi-sim # 貌似没作用
+      - PAPERLESS_OCR_LANGUAGE=eng+chi_sim
 
     volumes:
       - config:/config
@@ -38,7 +39,13 @@ networks:
       name: nginx-proxy-manager_default
 ```
 
-目前有个小bug就是缺`libzbar0`所以文件上传后无法被处理，解决方法就是从portainer的终端连进去然后`apt install libzbar0`或者用`docker-compose exec`（不是很确定具体用法）。
+默认用户名和密码都是`admin`。
+
+### 已知bug
+
+1. 官方镜像缺`libzbar0`导致文件上传后无法被处理，目前GitHub上的`Dockerfile`已经修复但镜像还没更新，可以自己本地构建。
+
+2. `PAPERLESS_OCR_LANGUAGES`环境变量似乎没用，并不会自动安装对应的ocr包，需要自己添加到`Dockerfile`中，然后自己构建。
 
 ## 使用官方镜像
 
