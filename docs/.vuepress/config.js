@@ -90,14 +90,21 @@ module.exports = {
             }
           ],
           '/competitive-programming/': [
+            '',
             {
-              title: '算法竞赛',
-              path: '/competitive-programming/',
+              title: '数据结构',
               children: [
                 'add-arithmetic-progression',
               ],
               collapsable: false
-            }
+            },
+            {
+              title: '动态规划',
+              children: [
+                'knapsack-binary-optimization'
+              ],
+              collapsable: false
+            },
           ],
           '/cookbook/': [
             {
@@ -108,6 +115,7 @@ module.exports = {
                 '香辣炒虾',
                 '豉油鸡腿',
                 '蒜香鸡腿',
+                '海鲜煮丝瓜',
               ],
               collapsable: false
             }
