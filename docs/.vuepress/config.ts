@@ -1,4 +1,9 @@
-module.exports = {
+import { defineUserConfig } from 'vuepress'
+import { defaultTheme } from 'vuepress'
+import mdEnhance from "vuepress-plugin-md-enhance";
+import { shikiPlugin } from '@vuepress/plugin-shiki'
+
+export default defineUserConfig({
   head: [
     ['link', { rel: "apple-touch-icon", sizes: "57x57", href: "/apple-icon-57x57.png" }],
     ['link', { rel: "apple-touch-icon", sizes: "60x60", href: "/apple-icon-60x60.png" }],
@@ -27,18 +32,18 @@ module.exports = {
       description: '我的知识库'
     },
     '/en/': {
-      selectText: 'Languages',
+      lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
       title: 'Thallium54\'s Wiki',
       description: 'My knowledge base'
     }
   },
-  themeConfig: {
+  theme: defaultTheme({
     sidebarDepth: 2,
     locales: {
       '/': {
-        label: '简体中文',
+        selectLanguageName: '简体中文',
         selectText: '🌐Languages',
-        nav: [
+        navbar: [
           { text: '服务器', link: '/home-server/' },
           { text: 'LaTex', link: '/latex/' },
           { text: '算法竞赛', link: '/competitive-programming/' },
@@ -48,83 +53,84 @@ module.exports = {
         ],
         sidebar: {
           '/home-server/': [
-            '',
+            '/home-server/',
             {
-              title: '通用',
+              text: '通用',
               children: [
                 'portainer',
                 'nginx-proxy-manager',
                 'wildcard-ssl',
               ],
-              collapsable: false
+              collapsible: false
             },
             {
-              title: '应用程序',
+              text: '应用程序',
               children: [
                 'file-browser',
                 'paperless-ngx'
               ],
-              collapsable: false
+              collapsible: false
             },
           ],
           '/latex/': [
-            '',
+            '/latex/',
             {
-              title: '指令',
+              text: '指令',
               children: [
                 'pictures'
               ],
-              collapsable: false
+              collapsible: false
             }
           ],
           '/software/': [
             {
-              title: '电脑软件',
-              path: '/software/',
+              text: '电脑软件',
+              link: '/software/',
               children: [
                 'rime',
                 'docker',
                 'git',
               ],
-              collapsable: false
+              collapsible: false
             }
           ],
           '/competitive-programming/': [
-            '',
+            '/competitive-programming/',
             {
-              title: '数据结构',
+              text: '数据结构',
               children: [
                 'add-arithmetic-progression',
               ],
-              collapsable: false
+              collapsible: false
             },
             {
-              title: '动态规划',
+              text: '动态规划',
               children: [
                 'knapsack-binary-optimization'
               ],
-              collapsable: false
+              collapsible: false
             },
           ],
           '/cookbook/': [
             {
-              title: '食谱',
-              path: '/cookbook/',
+              text: '食谱',
+              link: '/cookbook/',
               children: [
-                '鱼香肉丝',
-                '香辣炒虾',
-                '豉油鸡腿',
-                '蒜香鸡腿',
-                '海鲜煮丝瓜',
+                '鱼香肉丝.md',
+                '香辣炒虾.md',
+                '豉油鸡腿.md',
+                '蒜香鸡腿.md',
+                '海鲜煮丝瓜.md',
+                '番茄土豆烧鸡腿.md',
               ],
-              collapsable: false
+              collapsible: false
             }
           ],
         },
       },
       '/en/': {
         lang: 'en-US',
-        label: 'English',
+        selectLanguageName: 'English',
         selectText: '🌐Languages',
         nav: [
           { text: 'Server', link: '/home-server/' },
@@ -132,23 +138,26 @@ module.exports = {
         ],
         sidebar: {
           '/en/home-server/': [
-            '',
+            '/en/home-server/',
             {
-              title: 'Applications',
+              text: 'Applications',
               children: [
                 'paperless-ngx'
               ],
-              collapsable: false
+              collapsible: false
             },
           ],
         }
       }
     }
-  },
+  }),
   plugins: [
-    '@maginapp/vuepress-plugin-katex',
-    {
-        delimiters: 'dollars'
-    }
+    mdEnhance({
+      tex: true,
+    }),
+    shikiPlugin({
+        langs: ['yaml', 'cpp', 'bash', 'latex'],
+        theme: 'nord'
+    })
   ],
-}
+})

@@ -17,7 +17,7 @@
 dp[i - 1][j * 2 + s[i - 1]] = max(dp[i - 1][j * 2 + s[i - 1]], dp[i][j]);
 ```
 
-代码：
+::: details 代码
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -66,6 +66,7 @@ int main() {
     }
 }
 ```
+:::
 
 ## 另一道题
 
@@ -77,7 +78,7 @@ int main() {
 - 异或的限制
     - 如果当前位是$1$，那就选$1,3,5,\dots$个，如果是$0$就选$0,2,4,\dots$个
 
-代码：（参考了jiangly的写法，他是从$i+1$往$i$转移的）
+::: details 代码（参考了jiangly的写法，他是从i+1往i转移的）
 
 ```cpp
 #include <bits/stdc++.h>
@@ -153,3 +154,4 @@ int main() {
     cout << solve(r) - solve(l - 1) << endl;
 }
 ```
+:::

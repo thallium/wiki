@@ -89,7 +89,7 @@ use_preset_vocabulary: false
 
 `flypy.schema.yaml`示例
 
-```YAML
+```yaml
 # Rime schema settings
 # encoding: utf-8
 
