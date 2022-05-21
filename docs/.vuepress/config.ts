@@ -90,6 +90,7 @@ export default defineUserConfig({
                 'rime',
                 'docker',
                 'git',
+                'misc',
               ],
               collapsible: false
             }
@@ -113,17 +114,27 @@ export default defineUserConfig({
           ],
           '/cookbook/': [
             {
-              text: '食谱',
-              link: '/cookbook/',
+              text: '牛肉',
               children: [
                 '鱼香肉丝.md',
-                '香辣炒虾.md',
-                '豉油鸡腿.md',
-                '蒜香鸡腿.md',
-                '海鲜煮丝瓜.md',
-                '番茄土豆烧鸡腿.md',
+                '牛腱子的几种做法.md'
               ],
               collapsible: false
+            },
+            {
+              text: '鸡肉',
+              children: [
+                '豉油鸡腿.md',
+                '蒜香鸡腿.md',
+                '番茄土豆烧鸡腿.md',
+              ]
+            },
+            {
+              text: '海鲜',
+              children: [
+                '香辣炒虾.md',
+                '海鲜煮丝瓜.md',
+              ]
             }
           ],
         },
@@ -131,9 +142,8 @@ export default defineUserConfig({
       '/en/': {
         lang: 'en-US',
         selectLanguageName: 'English',
-        selectText: '🌐Languages',
-        nav: [
-          { text: 'Server', link: '/home-server/' },
+        navbar: [
+          { text: 'Home Server', link: '/home-server/' },
           { text: 'About Me', link: 'https://tgc54.com' },
         ],
         sidebar: {

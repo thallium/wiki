@@ -4,3 +4,5 @@ docs/.vuepress/dist/
 docs/.vuepress/workers-site/
 docs/.vuepress/.cache
 docs/.vuepress/.temp
+
+**/.DS_Store
