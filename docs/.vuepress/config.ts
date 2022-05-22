@@ -135,6 +135,12 @@ export default defineUserConfig({
                 '香辣炒虾.md',
                 '海鲜煮丝瓜.md',
               ]
+            },
+            {
+              text: '其他',
+              children: [
+                '百菇盖饭.md'
+              ]
             }
           ],
         },
