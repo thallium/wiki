@@ -149,7 +149,8 @@ export default defineUserConfig({
         lang: 'en-US',
         selectLanguageName: 'English',
         navbar: [
-          { text: 'Home Server', link: '/home-server/' },
+          { text: 'Home Server', link: '/en/home-server/' },
+          { text: 'Software', link: '/en/software/' },
           { text: 'About Me', link: 'https://tgc54.com' },
         ],
         sidebar: {
@@ -163,6 +164,14 @@ export default defineUserConfig({
               collapsible: false
             },
           ],
+          '/en/software/': [
+            {
+              text: 'Software',
+              children: [
+                'git'
+              ]
+            }
+          ]
         }
       }
     }
