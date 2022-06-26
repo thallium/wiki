@@ -1,6 +1,6 @@
 import { defineUserConfig } from 'vuepress'
 import { defaultTheme } from 'vuepress'
-import mdEnhance from "vuepress-plugin-md-enhance";
+import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
 import { shikiPlugin } from '@vuepress/plugin-shiki'
 
 export default defineUserConfig({
@@ -46,10 +46,14 @@ export default defineUserConfig({
         navbar: [
           { text: '服务器', link: '/home-server/' },
           { text: 'LaTex', link: '/latex/' },
-          { text: '算法竞赛', link: '/competitive-programming/' },
+          {
+            text: '算法竞赛',
+            children: ['/competitive-programming/']
+          },
           { text: '电脑软件', link: '/software/' },
           { text: '食谱', link: '/cookbook/' },
           { text: '关于我', link: 'https://tgc54.com/zh/' },
+          { text: 'Rust', link:  '/rust/' },
         ],
         sidebar: {
           '/home-server/': [
@@ -143,6 +147,20 @@ export default defineUserConfig({
               ]
             }
           ],
+          '/rust/': [
+            {
+              text: 'Syntax',
+              children: [
+                'pattern',
+              ]
+            },
+            {
+              text: '容器',
+              children: [
+                'BTreeSet',
+              ]
+            }
+          ],
         },
       },
       '/en/': {
@@ -151,6 +169,7 @@ export default defineUserConfig({
         navbar: [
           { text: 'Home Server', link: '/en/home-server/' },
           { text: 'Software', link: '/en/software/' },
+          { text: 'Rust', link: '/en/rust/' },
           { text: 'About Me', link: 'https://tgc54.com' },
         ],
         sidebar: {
@@ -171,17 +190,31 @@ export default defineUserConfig({
                 'git'
               ]
             }
+          ],
+          '/en/rust/': [
+            {
+              text: 'Syntax',
+              children: [
+                'pattern',
+              ]
+            },
+            {
+              text: 'Containers',
+              children: [
+                'BTreeSet',
+              ]
+            }
           ]
         }
       }
     }
   }),
   plugins: [
-    mdEnhance({
+    mdEnhancePlugin({
       tex: true,
     }),
     shikiPlugin({
-        langs: ['yaml', 'cpp', 'bash', 'latex'],
+        langs: ['yaml', 'cpp', 'bash', 'latex', 'rust'],
         theme: 'nord'
     })
   ],
